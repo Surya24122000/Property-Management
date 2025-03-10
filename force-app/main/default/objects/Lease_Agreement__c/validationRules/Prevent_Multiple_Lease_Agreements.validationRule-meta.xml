@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Multiple_Lease_Agreements</fullName>
+    <active>true</active>
+    <errorConditionFormula>Property__r.Lease_Agreement_Count__c &gt; 0</errorConditionFormula>
+    <errorMessage>A property can have only one active lease agreement.</errorMessage>
+</ValidationRule>

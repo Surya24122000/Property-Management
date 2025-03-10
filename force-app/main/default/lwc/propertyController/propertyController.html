@@ -1,0 +1,68 @@
+<template>
+    <lightning-card title="Property List">
+        <div class="slds-m-around_medium slds-text-align_right">
+            <lightning-button label="Create New Property" icon-name="utility:add" onclick={handleNewProperty}></lightning-button>
+        </div>
+
+        <!-- Filters -->
+        <div class="slds-m-around_medium">
+            <lightning-input type="number" name="minPrice" label="Min Price" value={minPrice} onchange={handleFilterChange}></lightning-input>
+            <lightning-input type="number" name="maxPrice" label="Max Price" value={maxPrice} onchange={handleFilterChange}></lightning-input>
+            
+            <lightning-combobox
+                name="selectedStatus"
+                label="Availability"
+                options={statusOptions}
+                value={selectedStatus}
+                onchange={handleFilterChange}>
+            </lightning-combobox>
+
+            <lightning-combobox
+                name="selectedFurnishing"
+                label="Furnishing Status"
+                options={furnishingOptions}
+                value={selectedFurnishing}
+                onchange={handleFilterChange}>
+            </lightning-combobox>
+
+            <lightning-input type="number" name="maxDistance" label="Nearby Distance (km)" value={maxDistance} onchange={handleFilterChange}></lightning-input>
+        </div>
+
+        <!-- Property Table -->
+        <div class="slds-m-around_medium">
+            <table class="slds-table slds-table_bordered">
+                <thead>
+                    <tr>
+                        <th>Property Name</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Price</th>
+                        <th>Furnishing</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={properties} for:item="property">
+                        <tr key={property.Id}>
+                            <td>{property.Name}</td>
+                            <td>{property.Address__c}</td>
+                            <td>{property.City__c}</td>
+                            <td>{property.State__c}</td>
+                            <td>{property.Rent__c}</td>
+                            <td>{property.Furnishing_Status__c}</td>
+                            <td>{property.Status__c}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="slds-m-around_medium slds-text-align_center">
+            <lightning-button label="Previous" onclick={handlePrevious} disabled={isPreviousDisabled}></lightning-button>
+            <span class="slds-m-horizontal_medium">Page {currentPage} of {totalPages}</span>
+            <lightning-button label="Next" onclick={handleNext} disabled={isNextDisabled}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
