@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>PropertyController</members>
+        <members>LeaseAgreementController</members>
+        <members>LeaseReminderScheduler</members>
+        <name>ApexClass</name>
+    </types>
+     <types>
+        <members>PropertyTenantTrigger</members>
+        <members>VendorAssign</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>propertyMap</members>
+        <members>PropertyController</members>
+        <members>leaseAgreementPdf</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <version>63.0</version>
+</Package>
